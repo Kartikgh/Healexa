@@ -8,10 +8,23 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @ObservedObject var logger = Logger.shared
+    
     var body: some View {
-        Text("Settings View")
-            .font(.largeTitle)
-            .foregroundColor(.purple)
+        VStack {
+            ScrollView {
+                ForEach(logger.logs, id: \..self) { log in
+                    Text(log)
+                        .font(.caption)
+                        .padding()
+                }
+            }
+            .frame(height: 300)
+            Button("Clear Logs") {
+                logger.logs.removeAll()
+            }
+        }
     }
 }
+
 

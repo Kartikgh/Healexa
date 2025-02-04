@@ -34,6 +34,19 @@
 		4C6E6E962D50DDA3008175E0 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6E952D50DDA3008175E0 /* NavigationRouter.swift */; };
 		4C6E6E982D50DDC4008175E0 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6E972D50DDC4008175E0 /* NavigationDestination.swift */; };
 		4C6E6E9A2D50EA33008175E0 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6E992D50EA33008175E0 /* CustomNavBarView.swift */; };
+		4C6E6E9C2D51ED1A008175E0 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6E9B2D51ED1A008175E0 /* CategoryListView.swift */; };
+		4C6E6E9E2D51EE4B008175E0 /* SimpleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6E9D2D51EE4B008175E0 /* SimpleCard.swift */; };
+		4C6E6EA02D51EE58008175E0 /* MultiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6E9F2D51EE58008175E0 /* MultiCard.swift */; };
+		4C6E6EA22D52151B008175E0 /* CategoryAndDoctorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6EA12D52151B008175E0 /* CategoryAndDoctorListViewModel.swift */; };
+		4C6E6EA42D521593008175E0 /* SimpleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6EA32D521593008175E0 /* SimpleCardView.swift */; };
+		4C6E6EA62D5215B2008175E0 /* MultiCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6EA52D5215B2008175E0 /* MultiCardView.swift */; };
+		4C6E6EA92D521745008175E0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6EA82D521745008175E0 /* Logger.swift */; };
+		4C6E6EAD2D5225DA008175E0 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6EAC2D5225DA008175E0 /* UserDefaults+Extension.swift */; };
+		4C6E6EAF2D522676008175E0 /* BookAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6EAE2D522676008175E0 /* BookAppointmentView.swift */; };
+		4C6E6EB12D5281BC008175E0 /* PopupBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E6EB02D5281BC008175E0 /* PopupBackground.swift */; };
+		4C6E6EB32D5282E9008175E0 /* SFProText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C6E6EB22D5282E9008175E0 /* SFProText-Light.otf */; };
+		4C6E6EB52D5282F7008175E0 /* SFProText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C6E6EB42D5282F7008175E0 /* SFProText-Medium.otf */; };
+		4C6E6EB72D528301008175E0 /* SFProText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C6E6EB62D528301008175E0 /* SFProText-Semibold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +79,19 @@
 		4C6E6E952D50DDA3008175E0 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		4C6E6E972D50DDC4008175E0 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		4C6E6E992D50EA33008175E0 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
+		4C6E6E9B2D51ED1A008175E0 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		4C6E6E9D2D51EE4B008175E0 /* SimpleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCard.swift; sourceTree = "<group>"; };
+		4C6E6E9F2D51EE58008175E0 /* MultiCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCard.swift; sourceTree = "<group>"; };
+		4C6E6EA12D52151B008175E0 /* CategoryAndDoctorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAndDoctorListViewModel.swift; sourceTree = "<group>"; };
+		4C6E6EA32D521593008175E0 /* SimpleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardView.swift; sourceTree = "<group>"; };
+		4C6E6EA52D5215B2008175E0 /* MultiCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCardView.swift; sourceTree = "<group>"; };
+		4C6E6EA82D521745008175E0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		4C6E6EAC2D5225DA008175E0 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		4C6E6EAE2D522676008175E0 /* BookAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentView.swift; sourceTree = "<group>"; };
+		4C6E6EB02D5281BC008175E0 /* PopupBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackground.swift; sourceTree = "<group>"; };
+		4C6E6EB22D5282E9008175E0 /* SFProText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.otf"; sourceTree = "<group>"; };
+		4C6E6EB42D5282F7008175E0 /* SFProText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.otf"; sourceTree = "<group>"; };
+		4C6E6EB62D528301008175E0 /* SFProText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +111,7 @@
 				4C5CB3002D4B87A8006427A5 /* ImageAssetName.swift */,
 				4C27E6FB2D4C991300AF6FEA /* FontAndColor.swift */,
 				4C27E7062D4CAE5500AF6FEA /* Constants.swift */,
+				4C6E6EAC2D5225DA008175E0 /* UserDefaults+Extension.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -93,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				4C27E6FE2D4C994600AF6FEA /* OnboardingPage.swift */,
+				4C6E6E9D2D51EE4B008175E0 /* SimpleCard.swift */,
+				4C6E6E9F2D51EE58008175E0 /* MultiCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +131,9 @@
 			children = (
 				4C27E7022D4CA2B200AF6FEA /* SFProText-Bold.otf */,
 				4C27E7012D4CA2B200AF6FEA /* SFProText-Regular.otf */,
+				4C6E6EB22D5282E9008175E0 /* SFProText-Light.otf */,
+				4C6E6EB42D5282F7008175E0 /* SFProText-Medium.otf */,
+				4C6E6EB62D528301008175E0 /* SFProText-Semibold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -110,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				4C27E7092D4CAF2600AF6FEA /* OnboardingViewModel.swift */,
+				4C6E6EA12D52151B008175E0 /* CategoryAndDoctorListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -133,6 +166,7 @@
 		4C5CB2EC2D4B82E7006427A5 /* Healexa */ = {
 			isa = PBXGroup;
 			children = (
+				4C6E6EA72D521739008175E0 /* Logger */,
 				4C6E6E942D50DD92008175E0 /* Navigation */,
 				4C6E6E7F2D509958008175E0 /* Reusable Components */,
 				4C27E7052D4CA2BF00AF6FEA /* Info.plist */,
@@ -168,6 +202,10 @@
 				4C6E6E862D5099B1008175E0 /* MessageView.swift */,
 				4C6E6E882D5099BA008175E0 /* SettingsView.swift */,
 				4C6E6E922D50D331008175E0 /* DoctorListView.swift */,
+				4C6E6E9B2D51ED1A008175E0 /* CategoryListView.swift */,
+				4C6E6EA32D521593008175E0 /* SimpleCardView.swift */,
+				4C6E6EA52D5215B2008175E0 /* MultiCardView.swift */,
+				4C6E6EAE2D522676008175E0 /* BookAppointmentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +219,7 @@
 				4C6E6E8E2D509FAB008175E0 /* FixedSpacer.swift */,
 				4C6E6E902D50A5CF008175E0 /* SectionWithScrollableCardsView.swift */,
 				4C6E6E992D50EA33008175E0 /* CustomNavBarView.swift */,
+				4C6E6EB02D5281BC008175E0 /* PopupBackground.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -192,6 +231,14 @@
 				4C6E6E972D50DDC4008175E0 /* NavigationDestination.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4C6E6EA72D521739008175E0 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				4C6E6EA82D521745008175E0 /* Logger.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +301,11 @@
 			files = (
 				4C5CB2F52D4B82E9006427A5 /* Preview Assets.xcassets in Resources */,
 				4C5CB2FF2D4B86C6006427A5 /* ColorAssets.xcassets in Resources */,
+				4C6E6EB32D5282E9008175E0 /* SFProText-Light.otf in Resources */,
 				4C27E7042D4CA2B200AF6FEA /* SFProText-Bold.otf in Resources */,
+				4C6E6EB72D528301008175E0 /* SFProText-Semibold.otf in Resources */,
 				4C27E7032D4CA2B200AF6FEA /* SFProText-Regular.otf in Resources */,
+				4C6E6EB52D5282F7008175E0 /* SFProText-Medium.otf in Resources */,
 				4C5CB2F22D4B82E9006427A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,9 +319,15 @@
 			files = (
 				4C6E6E8B2D5099DB008175E0 /* CustomTabBarButton.swift in Sources */,
 				4C6E6E982D50DDC4008175E0 /* NavigationDestination.swift in Sources */,
+				4C6E6EAF2D522676008175E0 /* BookAppointmentView.swift in Sources */,
 				4C5CB2FD2D4B83A8006427A5 /* OnBoardingView.swift in Sources */,
+				4C6E6EB12D5281BC008175E0 /* PopupBackground.swift in Sources */,
+				4C6E6EA42D521593008175E0 /* SimpleCardView.swift in Sources */,
+				4C6E6EA22D52151B008175E0 /* CategoryAndDoctorListViewModel.swift in Sources */,
+				4C6E6EA92D521745008175E0 /* Logger.swift in Sources */,
 				4C5CB3012D4B87A8006427A5 /* ImageAssetName.swift in Sources */,
 				4C27E6FC2D4C991300AF6FEA /* FontAndColor.swift in Sources */,
+				4C6E6E9C2D51ED1A008175E0 /* CategoryListView.swift in Sources */,
 				4C6E6E8D2D509E8A008175E0 /* SearchBarView.swift in Sources */,
 				4C27E70E2D4CB66D00AF6FEA /* HomeTabView.swift in Sources */,
 				4C5CB2EE2D4B82E7006427A5 /* HealexaApp.swift in Sources */,
@@ -281,13 +337,17 @@
 				4C6E6E892D5099BA008175E0 /* SettingsView.swift in Sources */,
 				4C27E6FF2D4C994600AF6FEA /* OnboardingPage.swift in Sources */,
 				4C27E70A2D4CAF2600AF6FEA /* OnboardingViewModel.swift in Sources */,
+				4C6E6E9E2D51EE4B008175E0 /* SimpleCard.swift in Sources */,
+				4C6E6EA62D5215B2008175E0 /* MultiCardView.swift in Sources */,
 				4C6E6E812D509971008175E0 /* ProfileHeaderView.swift in Sources */,
 				4C6E6E932D50D331008175E0 /* DoctorListView.swift in Sources */,
 				4C27E70C2D4CB11A00AF6FEA /* OnboardingPageView.swift in Sources */,
 				4C6E6E9A2D50EA33008175E0 /* CustomNavBarView.swift in Sources */,
 				4C6E6E8F2D509FAB008175E0 /* FixedSpacer.swift in Sources */,
+				4C6E6EA02D51EE58008175E0 /* MultiCard.swift in Sources */,
 				4C6E6E852D5099A7008175E0 /* AppointmentView.swift in Sources */,
 				4C6E6E962D50DDA3008175E0 /* NavigationRouter.swift in Sources */,
+				4C6E6EAD2D5225DA008175E0 /* UserDefaults+Extension.swift in Sources */,
 				4C27E7072D4CAE5500AF6FEA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

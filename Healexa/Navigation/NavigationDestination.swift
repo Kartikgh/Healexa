@@ -13,15 +13,21 @@ enum NavigationDestination: Hashable, Identifiable {
     case onboarding
     case homeTab
     case doctorListView
+    case allCategoryListView
+    case bookAppointmentView
 
     var id: String {
         switch self {
         case .onboarding:
-            return "onboarding"
+            return Constants.NavigationDestinationIdentifier.onboarding
         case .homeTab:
-            return "homeTab"
+            return Constants.NavigationDestinationIdentifier.homeTab
         case .doctorListView:
-            return "doctorListView"
+            return Constants.NavigationDestinationIdentifier.doctorListView
+        case .allCategoryListView:
+            return Constants.NavigationDestinationIdentifier.allCategoryListView
+        case .bookAppointmentView:
+            return Constants.NavigationDestinationIdentifier.bookAppointmentView
         }
     }
 }

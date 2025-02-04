@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SearchBarView: View {
     @Binding var searchText: String
-    var placeholder: String = "Search anything"
+    var placeholder: String = Constants.searchPlaceholderTitle
     
     var body: some View {
         HStack {
             // Search Icon
-            Image(systemName: "magnifyingglass")
+            Image(systemName: ImageAssetName.searchIcon)
                 .foregroundColor(.gray)
             
             // Search TextField
@@ -25,9 +25,9 @@ struct SearchBarView: View {
             // Clear Button (Shows only when text is not empty)
             if !searchText.isEmpty {
                 Button(action: {
-                    searchText = "" // Clear text
+                    searchText = ""
                 }) {
-                    Image(systemName: "xmark.circle.fill")
+                    Image(systemName: ImageAssetName.clearButtonIcon)
                         .foregroundColor(.gray)
                 }
             }

@@ -11,7 +11,7 @@ struct ProfileHeaderView: View {
     var profileImage: String
     var userName: String
     
-    init(profileImage: String = "avatar", userName: String = "John Doe") {
+    init(profileImage: String = ImageAssetName.avatar, userName: String = "") {
         self.profileImage = profileImage
         self.userName = userName
     }
@@ -30,7 +30,7 @@ struct ProfileHeaderView: View {
             
             VStack(alignment: .leading, spacing: 5) {
                 // Welcome Message
-                Text("Hi,")
+                Text(Constants.welcomeMessage)
                     .fontAndColor(name: AppFont.regular.name, size: AppFontSize.size12.value, color: Color.appColorWelcomeTitle)
                 
                 // User Name

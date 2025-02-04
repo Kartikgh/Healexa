@@ -26,7 +26,21 @@ class NavigationRouter: ObservableObject {
 
     // Pop to the root view
     func popToRoot() {
-        navigationPath.removeLast()
+        navigationPath = NavigationPath()
+    }
+    
+    // Pop the last view, but retain the second-to-last view
+    func popLast() {
+        if navigationPath.count > 1 {
+            navigationPath.removeLast()
+        }
+    }
+    
+    // Pop the last two views
+    func popLast2() {
+        if navigationPath.count > 2 {
+            navigationPath.removeLast(2)
+        }
     }
 
     // Present a modal view
@@ -60,6 +74,10 @@ struct NavigationStackView<Content: View>: View {
                         HomeTabView().environmentObject(router)
                     case .doctorListView:
                         DoctorListView().environmentObject(router)
+                    case .allCategoryListView:
+                        CategoryListView().environmentObject(router)
+                    case .bookAppointmentView:
+                        BookAppointmentView().environmentObject(router)
                     }
                 }
         }

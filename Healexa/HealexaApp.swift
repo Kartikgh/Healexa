@@ -14,7 +14,11 @@ struct HealexaApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStackView {
-                OnBoardingView()
+                if UserDefaults.isOnboardingCompleted {
+                    HomeTabView()
+                } else {
+                    OnBoardingView()
+                }
             }
             .environmentObject(router)
         }

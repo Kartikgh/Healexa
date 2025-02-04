@@ -32,11 +32,11 @@ enum AppFont: String {
     
     var name: String {
         switch self {
-        case .regular: return "SFProText-Regular"
-        case .bold: return "SFProText-Bold"
-        case .medium: return "SFProText-Medium"
-        case .semibold: return "SFProText-Semibold"
-        case .light: return "SFProText-Light"
+        case .regular: return Constants.FontFamilyTitle.SFProText_Regular
+        case .bold: return Constants.FontFamilyTitle.SFProText_Bold
+        case .medium: return Constants.FontFamilyTitle.SFProText_Medium
+        case .semibold: return Constants.FontFamilyTitle.SFProText_SemiBold
+        case .light: return Constants.FontFamilyTitle.SFProText_light
         }
     }
 }
@@ -53,14 +53,14 @@ enum AppFontSize: CGFloat {
     
     var value: CGFloat {
         switch self {
-        case .size8: return 8
-        case .size10: return 10
-        case .size12: return 12
-        case .size14: return 14
-        case .size16: return 16
-        case .size18: return 18
-        case .size20: return 20
-        case .size22: return 22
+        case .size8: return CGFloat(Constants.FontSizeNumber.size8)
+        case .size10: return CGFloat(Constants.FontSizeNumber.size10)
+        case .size12: return CGFloat(Constants.FontSizeNumber.size12)
+        case .size14: return CGFloat(Constants.FontSizeNumber.size14)
+        case .size16: return CGFloat(Constants.FontSizeNumber.size16)
+        case .size18: return CGFloat(Constants.FontSizeNumber.size18)
+        case .size20: return CGFloat(Constants.FontSizeNumber.size20)
+        case .size22: return CGFloat(Constants.FontSizeNumber.size22)
         }
     }
 }

@@ -118,15 +118,15 @@ struct OnboardingNextButton: View {
                     currentPage += 1
                 }
             } else {
-                print("Navigate to home screen")
                 navigationPath.append(NavigationDestination.homeTab)
+                UserDefaults.isOnboardingCompleted = true
             }
         }) {
             Text(currentPage == totalPages - 1 ? Constants.getStartedTitle : Constants.nextTitle)
                 .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size16.value, color: Color(.white))
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color(.appColor6C4BA4))
+                .background(Color.appColor6C4BA4)
                 .cornerRadius(10)
                 .padding(.horizontal, 40)
         }

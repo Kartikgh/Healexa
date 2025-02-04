@@ -9,8 +9,8 @@ import Foundation
 
 class OnboardingViewModel: ObservableObject {
     @Published var pages: [OnboardingPage] = [
-        OnboardingPage(image: ImageAssetName.introImage, title: "Welcome to Healexa", description: "Your trusted healthcare companion."),
-        OnboardingPage(image: ImageAssetName.introImage, title: "Find Doctors Easily", description: "Book appointments with top specialists."),
-        OnboardingPage(image: ImageAssetName.introImage, title: "Get Medical Advice", description: "Receive personalized health recommendations.")
+        OnboardingPage(image: ImageAssetName.introImage, title: Constants.welcomeNoteTitle1, description: Constants.welcomeNoteSubTitle1),
+        OnboardingPage(image: ImageAssetName.introImage, title: Constants.welcomeNoteTitle2, description: Constants.welcomeNoteSubTitle2),
+        OnboardingPage(image: ImageAssetName.introImage, title: Constants.welcomeNoteTitle3, description: Constants.welcomeNoteSubTitle3)
     ]
 }

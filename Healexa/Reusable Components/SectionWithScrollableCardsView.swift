@@ -26,7 +26,7 @@ struct SectionWithScrollableCardsView<Content: View>: View {
                         Button(action: {
                             viewAllAction?()
                         }) {
-                            Text("View all")
+                            Text(Constants.viewAll)
                                 .fontAndColor(name: AppFont.regular.name, size: AppFontSize.size12.value, color: Color.appColorNameTitle)
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 6)
