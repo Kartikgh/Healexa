@@ -7,61 +7,43 @@
 
 import SwiftUI
 
-
 struct BookAppointmentView: View {
     @EnvironmentObject var router: NavigationRouter
     @State private var showDayPicker = false
     @State private var showMonthPicker = false
     @State private var showTimePicker = false
     @State private var selectedDay: Int = Calendar.current.component(.day, from: Date())
-    @State private var selectedMonth: Int = Calendar.current.component(.month, from: Date()) // Current Month
+    @State private var selectedMonth: Int = Calendar.current.component(.month, from: Date())
     @State private var selectedTime: String = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm a"
+        formatter.dateFormat = Constants.dateFormatIdentifier.hh_mm_a
         return formatter.string(from: Date())
     }()
     
-    @State private var selectedOption: String = "Online"
+    @State private var selectedOption: String = Constants.onlineTitle
     
     var formattedDate: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+        dateFormatter.dateFormat = Constants.dateFormatIdentifier.mm_dd_yyy_hh_mm_a
         let currentYear = Calendar.current.component(.year, from: Date())
         let dateString = "\(selectedMonth)/\(selectedDay)/\(currentYear) \(selectedTime)"
         
         if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "EEEE, MMM d, yyyy h:mm a" // Desired format
+            dateFormatter.dateFormat = Constants.dateFormatIdentifier.EEE_MMM_D_YYYY_H_MM_A
             return dateFormatter.string(from: date)
         }
-        return "Invalid Date"
+        return ""
     }
     
     var body: some View {
         VStack {
-            CustomNavBarView {
-                Button(action: {
-                    router.pop()
-                }) {
-                    Image(systemName: ImageAssetName.backIcon)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.black)
-                        .fontWeight(.bold)
-                }
-                .padding()
-                .background(Color.appColorCardBg)
-                .clipShape(Circle())
-            } centerView: {
-                Text(Constants.bookAppointmentTitle)
-                    .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size20.value, color: Color.appColorHeaderTitle)
-            }
-
+            navBar()
+            
             FixedSpacer(height: 35)
 
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("Select Date & Time")
+                    Text(Constants.selecteDateAndTimeTitle)
                         .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size20.value, color: Color.appColorHeaderTitle)
 
                     FixedSpacer(height: 25)
@@ -71,7 +53,7 @@ struct BookAppointmentView: View {
                     
                     FixedSpacer(height: 30)
                     
-                    Text("Reason To Visit")
+                    Text(Constants.reasonToVisitTitle)
                         .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size20.value, color: Color.appColorHeaderTitle)
                     
                     FixedSpacer(height: 25)
@@ -80,103 +62,19 @@ struct BookAppointmentView: View {
 
                     FixedSpacer(height: 30)
 
-                    Text("Appointment Type")
+                    Text(Constants.appointmentTypeTitle)
                         .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size20.value, color: Color.appColorHeaderTitle)
                     
                     FixedSpacer(height: 24)
                     
-                    HStack {
-                        Button(action: {
-                            selectedOption = "Online"
-                        }) {
-                            Text("Online")
-                                .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size14.value, color: selectedOption == "Online" ? Color.appColorAA97C9  : Color.black)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .frame(height: 35)
-                                .multilineTextAlignment(.center)
-                                .padding(10)
-                                .background(selectedOption == "Online" ? Color.appColorF2EFFA  : Color.appColorEAEAEA)
-                                .cornerRadius(8)
-                        }
-
-                        FixedSpacer()
-
-                        Button(action: {
-                            selectedOption = "In-Person"
-                        }) {
-                            Text("In-Person")
-                                .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size14.value, color: selectedOption == "In-Person" ? Color.appColorAA97C9  : Color.black)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .frame(height: 35)
-                                .multilineTextAlignment(.center)
-                                .padding(10)
-                                .background(selectedOption == "In-Person" ? Color.appColorF2EFFA  : Color.appColorEAEAEA)
-                                .cornerRadius(8)
-                        }
-                    }
+                    appointmentTypeButtonView()
 
                     FixedSpacer(height: 80)
 
-                    VStack {
-                        HStack {
-                            FixedSpacer()
-                            Text("Doctor Fee")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
-                            Text("18$")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
-                            FixedSpacer()
-                        }
+                    receiptView()
 
-                        FixedSpacer(height: 10)
-
-                        HStack {
-                            FixedSpacer()
-                            Text("Platform Fee")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
-                            Text("0.2$")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
-                            FixedSpacer()
-                        }
-
-                        FixedSpacer(height: 10)
-                        Divider()
-                            .frame(height: 0.5)
-                            .background(Color.gray.opacity(0.5))
-
-                        FixedSpacer(height: 10)
-
-                        HStack {
-                            FixedSpacer()
-                            Text("Total Cost")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color.appColorHeaderTitle)
-                            Text("20$")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color.appColorHeaderTitle)
-                            FixedSpacer()
-                        }
-                    }
-
-                    VStack {
-                        FixedSpacer()
-
-                        Button(action: {
-                            router.popToRoot()
-                        }) {
-                            Text("Book Now")
-                                .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color(.white))
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.appColor6C4BA4)
-                                .cornerRadius(10)
-                        }
-                        .padding(.top, 20)
-                    }
-                    .edgesIgnoringSafeArea(.bottom)
+                    bookNowButtonView()
+                        .edgesIgnoringSafeArea(.bottom)
 
                     FixedSpacer()
                 }
@@ -216,6 +114,127 @@ struct BookAppointmentView: View {
             }
         )
     }
+    
+    @ViewBuilder
+    private func navBar() -> some View {
+        CustomNavBarView {
+            Button(action: {
+                router.pop()
+            }) {
+                Image(systemName: ImageAssetName.backIcon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(.black)
+                    .fontWeight(.bold)
+            }
+            .padding()
+            .background(Color.appColorCardBg)
+            .clipShape(Circle())
+        } centerView: {
+            Text(Constants.bookAppointmentTitle)
+                .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size20.value, color: Color.appColorHeaderTitle)
+        }
+    }
+    
+    @ViewBuilder
+    private func appointmentTypeButtonView() -> some View {
+        HStack {
+            Button(action: {
+                selectedOption = Constants.onlineTitle
+            }) {
+                Text(Constants.onlineTitle)
+                    .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size14.value, color: selectedOption == Constants.onlineTitle ? Color.appColorAA97C9  : Color.black)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(height: 35)
+                    .multilineTextAlignment(.center)
+                    .padding(10)
+                    .background(selectedOption == Constants.onlineTitle ? Color.appColorF2EFFA  : Color.appColorEAEAEA)
+                    .cornerRadius(8)
+            }
+
+            FixedSpacer()
+
+            Button(action: {
+                selectedOption = Constants.inPersonTitle
+            }) {
+                Text(Constants.inPersonTitle)
+                    .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size14.value, color: selectedOption == Constants.inPersonTitle ? Color.appColorAA97C9  : Color.black)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(height: 35)
+                    .multilineTextAlignment(.center)
+                    .padding(10)
+                    .background(selectedOption == Constants.inPersonTitle ? Color.appColorF2EFFA  : Color.appColorEAEAEA)
+                    .cornerRadius(8)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func receiptView() -> some View {
+        VStack {
+            HStack {
+                FixedSpacer()
+                Text(Constants.doctorFeeTitle)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
+                Text("18$")
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
+                FixedSpacer()
+            }
+
+            FixedSpacer(height: 10)
+
+            HStack {
+                FixedSpacer()
+                Text("Platform Fee")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
+                Text("0.2$")
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .fontAndColor(name: AppFont.medium.name, size: AppFontSize.size16.value, color: Color.gray)
+                FixedSpacer()
+            }
+
+            FixedSpacer(height: 10)
+            Divider()
+                .frame(height: 0.5)
+                .background(Color.gray.opacity(0.5))
+
+            FixedSpacer(height: 10)
+
+            HStack {
+                FixedSpacer()
+                Text(Constants.totalCostTitle)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color.appColorHeaderTitle)
+                Text("20$")
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color.appColorHeaderTitle)
+                FixedSpacer()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func bookNowButtonView() -> some View {
+        VStack {
+            FixedSpacer()
+
+            Button(action: {
+                router.popToRoot()
+            }) {
+                Text(Constants.bookNowButtonTitle)
+                    .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color(.white))
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.appColor6C4BA4)
+                    .cornerRadius(10)
+            }
+            .padding(.top, 20)
+        }
+    }
 }
 
 struct DayPickerPopupView: View {
@@ -226,11 +245,11 @@ struct DayPickerPopupView: View {
 
     var body: some View {
         VStack {
-            Text("Select Day")
+            Text(Constants.selectDayTitle)
                 .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color.appColorHeaderTitle)
                 .padding(.top)
             
-            Picker("Select Day", selection: $selectedDay) {
+            Picker(Constants.selectDayTitle, selection: $selectedDay) {
                 ForEach(days, id: \.self) { day in
                     Text("\(day)").tag(day)
                 }
@@ -243,7 +262,7 @@ struct DayPickerPopupView: View {
                     isPresented.toggle()
                 }
             }) {
-                Text("Done")
+                Text(Constants.doneTitle)
                     .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: .white)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -268,11 +287,11 @@ struct MonthPickerPopupView: View {
     
     var body: some View {
         VStack {
-            Text("Select Month")
+            Text(Constants.selectMonthTitle)
                 .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color.appColorHeaderTitle)
                 .padding(.top)
             
-            Picker("Select Month", selection: $selectedMonth) {
+            Picker(Constants.selectMonthTitle, selection: $selectedMonth) {
                 ForEach(0..<months.count, id: \.self) { index in
                     Text(months[index])
                         .tag(index + 1)
@@ -286,7 +305,7 @@ struct MonthPickerPopupView: View {
                     showMonthPicker.toggle()
                 }
             }) {
-                Text("Done")
+                Text(Constants.doneTitle)
                     .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: .white)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -314,20 +333,20 @@ struct TimePickerPopupView: View {
         self._selectedTime = selectedTime
         self._showTimePicker = showTimePicker
         self.dateFormatter = DateFormatter()
-        self.dateFormatter.dateFormat = "hh:mm a"
+        self.dateFormatter.dateFormat = Constants.dateFormatIdentifier.hh_mm_a
     }
     
     var body: some View {
         VStack {
             
-            Text("Select Time")
+            Text(Constants.selectTimeTitle)
                 .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: Color.appColorHeaderTitle)
                 .padding(.top)
             
             FixedSpacer(height: 30)
             
             DatePicker(
-                "Select Time",
+                Constants.selectTimeTitle,
                 selection: Binding(
                     get: {
                         return self.convertStringToDate(self.selectedTime) ?? Date()
@@ -350,7 +369,7 @@ struct TimePickerPopupView: View {
                     showTimePicker.toggle()
                 }
             }) {
-                Text("Done")
+                Text(Constants.doneTitle)
                     .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size18.value, color: .white)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -369,7 +388,7 @@ struct TimePickerPopupView: View {
     // Helper function to convert String to Date
     private func convertStringToDate(_ timeString: String) -> Date? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm a"
+        formatter.dateFormat = Constants.dateFormatIdentifier.hh_mm_a
         return formatter.date(from: timeString)
     }
 
@@ -396,7 +415,7 @@ struct CustomCalendarPickerView: View {
             
             // Day Picker Button
             VStack(alignment: .center) {
-                Text("Day")
+                Text(Constants.dayTitle)
                     .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size14.value, color: Color.appColorHeaderTitle)
                 
                 FixedSpacer(height: 6)
@@ -424,7 +443,7 @@ struct CustomCalendarPickerView: View {
 
             // Month Picker Button
             VStack(alignment: .center) {
-                Text("Month")
+                Text(Constants.monthTitle)
                     .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size14.value, color: Color.appColorHeaderTitle)
                 
                 FixedSpacer(height: 6)
@@ -451,7 +470,7 @@ struct CustomCalendarPickerView: View {
 
             // Time Picker Button
             VStack(alignment: .leading) {
-                Text("Time")
+                Text(Constants.timeTitle)
                     .fontAndColor(name: AppFont.bold.name, size: AppFontSize.size14.value, color: Color.appColorHeaderTitle)
                 
                 FixedSpacer(height: 6)
@@ -492,7 +511,7 @@ struct CustomDropdownView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("Follow Up", text: $textFieldInput)
+                TextField(Constants.followUpTitle, text: $textFieldInput)
                     .padding(15)
                     .background(Color.appColorCardBg)
                     .cornerRadius(8)
@@ -504,7 +523,7 @@ struct CustomDropdownView: View {
                         isDropdownVisible.toggle()
                     }
                 }) {
-                    Image(systemName: isDropdownVisible ? "chevron.up" : "chevron.down")
+                    Image(systemName: isDropdownVisible ? ImageAssetName.chevronUp : ImageAssetName.chevronDown)
                         .fontWeight(.bold)
                         .padding()
                         .background(Color.appColor6C4BA4)

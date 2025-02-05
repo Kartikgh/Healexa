@@ -30,4 +30,6 @@ struct ImageAssetName {
     static let avatar = "avatar"
     static let searchIcon = "magnifyingglass"
     static let clearButtonIcon = "xmark.circle.fill"
+    static let chevronUp = "chevron.up"
+    static let chevronDown = "chevron.down"
 }

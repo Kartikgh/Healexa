@@ -41,7 +41,23 @@ struct Constants {
     static let searchPlaceholderTitle = "Search anything"
     static let viewAll = "View all"
     static let bookAppointmentTitle = "Book Appointment"
-    
+    static let onlineTitle = "Online"
+    static let inPersonTitle = "In-Person"
+    static let selecteDateAndTimeTitle = "Select Date & Time"
+    static let reasonToVisitTitle = "Reason To Visit"
+    static let appointmentTypeTitle = "Appointment Type"
+    static let doctorFeeTitle = "Doctor Fee"
+    static let platformFeeTitle = "Platform Fee"
+    static let totalCostTitle = "Total Cost"
+    static let bookNowButtonTitle = "Book Now"
+    static let selectDayTitle = "Select Day"
+    static let doneTitle = "Done"
+    static let selectMonthTitle = "Select Month"
+    static let selectTimeTitle = "Select Time"
+    static let dayTitle = "Day"
+    static let monthTitle = "Month"
+    static let timeTitle = "Time"
+    static let followUpTitle = "Follow Up"
     
     struct FontFamilyTitle {
         static let  SFProText_Regular = "SFProText-Regular"
@@ -68,5 +84,11 @@ struct Constants {
         static let doctorListView = "doctorListView"
         static let allCategoryListView = "allCategoryListView"
         static let bookAppointmentView = "bookAppointmentView"
+    }
+    
+    struct dateFormatIdentifier {
+        static let hh_mm_a = "hh:mm a"
+        static let mm_dd_yyy_hh_mm_a = "MM/dd/yyyy hh:mm a"
+        static let EEE_MMM_D_YYYY_H_MM_A = "EEEE, MMM d, yyyy h:mm a"
     }
 }
